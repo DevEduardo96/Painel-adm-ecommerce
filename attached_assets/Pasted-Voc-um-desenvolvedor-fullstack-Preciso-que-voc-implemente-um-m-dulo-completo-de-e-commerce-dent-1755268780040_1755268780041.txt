@@ -1,0 +1,51 @@
+Você é um desenvolvedor fullstack. Preciso que você implemente um módulo completo de e-commerce dentro do painel admin Materially (React + Material UI). O módulo deve incluir as seguintes funcionalidades:
+
+1. **Produtos**
+   - Listar todos os produtos cadastrados
+   - Adicionar, editar e remover produtos
+   - Campos: nome, preço, estoque, descrição, imagem
+   - Armazenar os dados na tabela `produtos` do Supabase
+
+2. **Clientes**
+   - Listar todos os clientes
+   - Adicionar e editar clientes
+   - Campos: nome, e-mail, telefone
+   - Armazenar os dados na tabela `clientes` do Supabase
+
+3. **Pedidos**
+   - Listar pedidos
+   - Atualizar status do pedido: pendente, pago, enviado, concluído
+   - Mostrar nome e e-mail do cliente
+   - Armazenar na tabela `pedidos` do Supabase, relacionando `cliente_id` com a tabela clientes
+
+4. **Relatórios**
+   - Exibir gráfico de vendas diárias usando total de pedidos pagos
+   - Usar Recharts ou Material UI Charts
+   - Buscar dados da tabela `pedidos` do Supabase
+
+5. **Rotas e menu**
+   - Criar rotas no `MainRoutes.jsx` para `/produtos`, `/clientes`, `/pedidos`, `/relatorios`
+   - Adicionar grupo “E-commerce” no menu lateral do Materially com links para essas rotas
+
+6. **Supabase**
+   - Conectar o front-end ao Supabase usando `supabaseClient.js`
+   - Incluir script SQL para criar tabelas: `produtos`, `clientes`, `pedidos` com os campos mencionados
+   - Garantir que as relações (`cliente_id` em pedidos) estejam corretas
+
+7. **Padrão Materially**
+   - Usar `Loadable` + `lazy` para carregar todas as páginas
+   - Utilizar Material UI para tabelas, formulários e botões
+   - Seguir a estrutura de pastas do Materially
+
+Entregue o **código completo** dos arquivos:
+
+- `MainRoutes.jsx` atualizado
+- `menu-items/ecommerce.js`
+- `pages/Ecommerce/Produtos.jsx`
+- `pages/Ecommerce/Clientes.jsx`
+- `pages/Ecommerce/Pedidos.jsx`
+- `pages/Ecommerce/Relatorios.jsx`
+- `supabaseClient.js`
+- Script SQL para criar as tabelas no Supabase
+
+Não inclua nada que não seja funcional; todas as rotas devem funcionar no painel Materially, integradas ao Supabase.
