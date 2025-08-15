@@ -19,6 +19,7 @@
     "@mui/icons-material": "7.1.0",
     "@mui/material": "7.1.0",
     "@supabase/supabase-js": "^2.55.0",
+    "@tabler/icons-react": "^3.34.1",
     "@vitejs/plugin-react": "4.4.1",
     "apexcharts": "4.7.0",
     "lodash-es": "4.17.21",

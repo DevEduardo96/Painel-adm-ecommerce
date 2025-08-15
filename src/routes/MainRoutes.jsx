@@ -1,48 +1,72 @@
 import { lazy } from 'react';
-import Loadable from 'components/Loadable';
+
+// project imports
 import MainLayout from 'layouts/MainLayout';
+import Loadable from 'components/Loadable';
 
-// ==============================|| PÁGINAS DO PAINEL ||============================== //
-
-// Dashboard
+// dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/default')));
-const SamplePage = Loadable(lazy(() => import('views/pages/SamplePage')));
 
-// Components
-const UtilsTypography = Loadable(lazy(() => import('views/components/Typography')));
-
-// E-commerce (Produtos, Pedidos, Clientes, Relatórios)
+// ecommerce routing
 const Produtos = Loadable(lazy(() => import('pages/Ecommerce/Produtos')));
-const Pedidos = Loadable(lazy(() => import('pages/Ecommerce/Pedidos')));
 const Clientes = Loadable(lazy(() => import('pages/Ecommerce/Clientes')));
+const Pedidos = Loadable(lazy(() => import('pages/Ecommerce/Pedidos')));
 const Relatorios = Loadable(lazy(() => import('pages/Ecommerce/Relatorios')));
 
-// ==============================|| MAIN ROUTES ||============================== //
+// pages routing
+const SamplePage = Loadable(lazy(() => import('views/pages/SamplePage')));
+
+// utilities routing
+const Typography = Loadable(lazy(() => import('views/components/Typography')));
+
+// ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
   path: '/',
   element: <MainLayout />,
   children: [
-    // Dashboard
-    { path: '/', element: <DashboardDefault /> },
-    { path: '/dashboard/default', element: <DashboardDefault /> },
-
-    // Sample Page
-    { path: '/sample-page', element: <SamplePage /> },
-
-    // Components
     {
-      path: 'components',
+      path: '/',
+      element: <DashboardDefault />
+    },
+    {
+      path: 'dashboard',
       children: [
-        { path: 'typography', element: <UtilsTypography /> }
+        {
+          path: 'default',
+          element: <DashboardDefault />
+        }
       ]
     },
-
-    // E-commerce
-    { path: '/produtos', element: <Produtos /> },
-    { path: '/pedidos', element: <Pedidos /> },
-    { path: '/clientes', element: <Clientes /> },
-    { path: '/relatorios', element: <Relatorios /> }
+    {
+      path: 'produtos',
+      element: <Produtos />
+    },
+    {
+      path: 'clientes',
+      element: <Clientes />
+    },
+    {
+      path: 'pedidos',
+      element: <Pedidos />
+    },
+    {
+      path: 'relatorios',
+      element: <Relatorios />
+    },
+    {
+      path: 'sample-page',
+      element: <SamplePage />
+    },
+    {
+      path: 'utils',
+      children: [
+        {
+          path: 'typography',
+          element: <Typography />
+        }
+      ]
+    }
   ]
 };
 

@@ -1,13 +1,14 @@
 // type
 import dashboard from './dashboard';
 import pages from './pages';
+import ecommerce from './ecommerce';
 import other from './other';
 import uiComponent from './ui-component';
-import ecommerce from './ecommerce'
+
 // ==============================|| MENU ITEMS ||============================== //
 
 const menuItems = {
-  items: [dashboard, pages, uiComponent, other, ecommerce]
+  items: [dashboard, ecommerce, pages, uiComponent, other]
 };
 
 export default menuItems;
