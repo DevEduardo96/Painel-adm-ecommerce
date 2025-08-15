@@ -1,3 +1,4 @@
+
 import { lazy } from 'react';
 import { Navigate } from 'react-router-dom';
 
@@ -5,6 +6,7 @@ import { Navigate } from 'react-router-dom';
 import MainLayout from 'layouts/MainLayout';
 import Loadable from 'components/Loadable';
 import ErrorFallback from 'components/ErrorFallback';
+import ProtectedRoute from 'components/ProtectedRoute';
 
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/default')));
@@ -25,56 +27,54 @@ const Typography = Loadable(lazy(() => import('views/components/Typography')));
 
 const MainRoutes = {
   path: '/',
-  element: <MainLayout />,
+  element: (
+    <ProtectedRoute>
+      <MainLayout />
+    </ProtectedRoute>
+  ),
   errorElement: <ErrorFallback />,
   children: [
     {
-      path: '',
-      element: <Navigate to="/dashboard/default" replace />
+      path: '/',
+      element: <Navigate to="/dashboard" />
     },
     {
       path: 'dashboard',
+      element: <DashboardDefault />
+    },
+    {
+      path: 'ecommerce',
       children: [
         {
-          path: 'default',
-          element: <DashboardDefault />
+          path: 'produtos',
+          element: <Produtos />
+        },
+        {
+          path: 'clientes',
+          element: <Clientes />
+        },
+        {
+          path: 'pedidos',
+          element: <Pedidos />
+        },
+        {
+          path: 'relatorios',
+          element: <Relatorios />
         }
       ]
     },
     {
-      path: 'produtos',
-      element: <Produtos />,
-      errorElement: <ErrorFallback />
-    },
-    {
-      path: 'clientes',
-      element: <Clientes />,
-      errorElement: <ErrorFallback />
-    },
-    {
-      path: 'pedidos',
-      element: <Pedidos />,
-      errorElement: <ErrorFallback />
-    },
-    {
-      path: 'relatorios',
-      element: <Relatorios />,
-      errorElement: <ErrorFallback />
-    },
-    {
-      path: 'sample-page',
-      element: <SamplePage />,
-      errorElement: <ErrorFallback />
-    },
-    {
-      path: 'utils',
+      path: 'components',
       children: [
         {
           path: 'typography',
-          element: <Typography />,
-          errorElement: <ErrorFallback />
+          element: <Typography />
         }
       ]
+    },
+    {
+      path: 'sample-page',
+      element: <SamplePage />
     }
   ]
 };

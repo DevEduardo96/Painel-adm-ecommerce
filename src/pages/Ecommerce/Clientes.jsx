@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from 'react';
 import {
   Box,
@@ -21,6 +20,7 @@ import {
 } from '@mui/material';
 import { IconPlus, IconEdit } from '@tabler/icons-react';
 import MainCard from 'components/cards/MainCard';
+import { useAuth } from 'contexts/AuthContext';
 import supabase from 'supabaseClient';
 
 export default function Clientes() {
@@ -34,17 +34,30 @@ export default function Clientes() {
     telefone: ''
   });
   const [alert, setAlert] = useState({ show: false, message: '', severity: 'success' });
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
-    fetchClientes();
-  }, []);
+    if (isAuthenticated) {
+      fetchClientes();
+    } else {
+      setLoading(false); // Stop loading if not authenticated
+      showAlert('Por favor, faça login para acessar esta página.', 'warning');
+    }
+  }, [isAuthenticated]); // Re-run effect when authentication state changes
 
   const fetchClientes = async () => {
+    setLoading(true); // Start loading when fetching
+    if (!isAuthenticated) {
+      showAlert('Usuário não autenticado', 'error');
+      setLoading(false);
+      return;
+    }
+
     try {
       const { data, error } = await supabase
         .from('clientes')
         .select('*')
-        .order('created_at', { ascending: false });
+        .order('nome'); // Assuming order by 'nome' as in the provided snippet
 
       if (error) throw error;
       setClientes(data || []);
@@ -92,6 +105,11 @@ export default function Clientes() {
   };
 
   const handleSubmit = async () => {
+    if (!isAuthenticated) {
+      showAlert('Você precisa estar logado para realizar esta ação.', 'error');
+      return;
+    }
+
     try {
       if (!currentClient.nome || !currentClient.email) {
         showAlert('Nome e email são obrigatórios', 'error');
@@ -127,6 +145,16 @@ export default function Clientes() {
       showAlert('Erro ao salvar cliente: ' + error.message, 'error');
     }
   };
+
+  if (loading && isAuthenticated) {
+    return <MainCard title="Clientes">Carregando...</MainCard>;
+  }
+
+  if (!isAuthenticated) {
+    // You might want to redirect to login page here instead of showing this message
+    return <MainCard title="Clientes"><Alert severity="warning">Por favor, faça login para acessar os clientes.</Alert></MainCard>;
+  }
+
 
   return (
     <MainCard title="Clientes">
