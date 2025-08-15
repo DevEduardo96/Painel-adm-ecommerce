@@ -13,9 +13,14 @@ const config = {
 };
 
 export default config;
-export const drawerWidth = 260;
 
-// API Config
+// Layout Config
+export const DRAWER_WIDTH = 260;
+export const GRID_SPACING = 2;
+export const drawerWidth = 260; // Legacy support
+
+// App Config
+export const APP_DEFAULT_PATH = '/dashboard/default';
 export const API_SERVER = 'https://localhost:3000/app/';
 export const DASHBOARD_PATH = '/dashboard/default';
 export const HORIZONTAL_MAX_ITEM = 6;
