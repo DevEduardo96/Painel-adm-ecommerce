@@ -1,23 +1,11 @@
-const ecommerce = {
-  id: 'ecommerce',
-  title: 'E-commerce',
-  type: 'group',
-  children: [
-    { id: 'produtos', title: 'Produtos', type: 'item', url: '/produtos' },
-    { id: 'pedidos', title: 'Pedidos', type: 'item', url: '/pedidos' },
-    { id: 'clientes', title: 'Clientes', type: 'item', url: '/clientes' },
-    { id: 'relatorios', title: 'Relatórios', type: 'item', url: '/relatorios' }
-  ]
+import { IconShoppingCart, IconUsers, IconClipboardList, IconChartBar } from '@tabler/icons-react';
+
+const icons = {
+  IconShoppingCart,
+  IconUsers,
+  IconClipboardList,
+  IconChartBar
 };
-
-export default ecommerce;
-// assets
-import { IconShoppingCart, IconUsers, IconFileText, IconChartLine } from '@tabler/icons-react';
-
-// constant
-const icons = { IconShoppingCart, IconUsers, IconFileText, IconChartLine };
-
-// ==============================|| ECOMMERCE MENU ITEMS ||============================== //
 
 const ecommerce = {
   id: 'ecommerce',
@@ -45,7 +33,7 @@ const ecommerce = {
       title: 'Pedidos',
       type: 'item',
       url: '/pedidos',
-      icon: icons.IconFileText,
+      icon: icons.IconClipboardList,
       breadcrumbs: false
     },
     {
@@ -53,7 +41,7 @@ const ecommerce = {
       title: 'Relatórios',
       type: 'item',
       url: '/relatorios',
-      icon: icons.IconChartLine,
+      icon: icons.IconChartBar,
       breadcrumbs: false
     }
   ]

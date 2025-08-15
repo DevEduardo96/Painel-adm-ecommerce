@@ -1,8 +1,10 @@
+
 import { lazy } from 'react';
 
 // project imports
 import MainLayout from 'layouts/MainLayout';
 import Loadable from 'components/Loadable';
+import ErrorFallback from 'components/ErrorFallback';
 
 // dashboard routing
 const DashboardDefault = Loadable(lazy(() => import('views/dashboard/default')));
@@ -24,46 +26,55 @@ const Typography = Loadable(lazy(() => import('views/components/Typography')));
 const MainRoutes = {
   path: '/',
   element: <MainLayout />,
+  errorElement: <ErrorFallback />,
   children: [
     {
       path: '/',
-      element: <DashboardDefault />
+      element: <DashboardDefault />,
+      errorElement: <ErrorFallback />
     },
     {
       path: 'dashboard',
       children: [
         {
           path: 'default',
-          element: <DashboardDefault />
+          element: <DashboardDefault />,
+          errorElement: <ErrorFallback />
         }
       ]
     },
     {
       path: 'produtos',
-      element: <Produtos />
+      element: <Produtos />,
+      errorElement: <ErrorFallback />
     },
     {
       path: 'clientes',
-      element: <Clientes />
+      element: <Clientes />,
+      errorElement: <ErrorFallback />
     },
     {
       path: 'pedidos',
-      element: <Pedidos />
+      element: <Pedidos />,
+      errorElement: <ErrorFallback />
     },
     {
       path: 'relatorios',
-      element: <Relatorios />
+      element: <Relatorios />,
+      errorElement: <ErrorFallback />
     },
     {
       path: 'sample-page',
-      element: <SamplePage />
+      element: <SamplePage />,
+      errorElement: <ErrorFallback />
     },
     {
       path: 'utils',
       children: [
         {
           path: 'typography',
-          element: <Typography />
+          element: <Typography />,
+          errorElement: <ErrorFallback />
         }
       ]
     }
