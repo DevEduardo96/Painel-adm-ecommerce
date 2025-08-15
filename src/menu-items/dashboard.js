@@ -6,8 +6,8 @@ import HomeOutlinedIcon from '@mui/icons-material/HomeOutlined';
 
 const dashboard = {
   id: 'dashboard',
-  title: 'materially',
-  caption: 'Dashboard',
+  title: 'Dashboard',
+  caption: 'Painel Principal',
   icon: NavigationOutlinedIcon,
   type: 'group',
   children: [
