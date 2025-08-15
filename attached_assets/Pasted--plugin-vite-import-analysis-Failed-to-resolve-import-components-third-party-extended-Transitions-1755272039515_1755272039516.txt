@@ -1,0 +1,20 @@
+[plugin:vite:import-analysis] Failed to resolve import "components/third-party/@extended/Transitions" from "src/layouts/MainLayout/Header/Profile.jsx". Does the file exist?
+/home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/src/layouts/MainLayout/Header/Profile.jsx:25:24
+33 |  import PerfectScrollbar from "react-perfect-scrollbar";
+34 |  import MainCard from "components/cards/MainCard";
+35 |  import Transitions from "components/third-party/@extended/Transitions";
+   |                           ^
+36 |  import { useAuth } from "contexts/AuthContext";
+37 |  import LogoutOutlined from "@ant-design/icons/LogoutOutlined";
+    at TransformPluginContext._formatLog (file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42499:41)
+    at TransformPluginContext.error (file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42496:16)
+    at normalizeUrl (file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40475:23)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40594:37
+    at async Promise.all (index 20)
+    at async TransformPluginContext.transform (file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:40521:7)
+    at async EnvironmentPluginContainer.transform (file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:42294:18)
+    at async loadAndTransform (file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:35735:27)
+    at async viteTransformMiddleware (file:///home/eduardo/Downloads/Projetos/Teste/materially-free-react-admin-template/node_modules/vite/dist/node/chunks/dep-DBxKXgDP.js:37250:24
+Click outside, press Esc key, or fix the code to dismiss.
+You can also disable this overlay by setting server.hmr.overlay to false in vite.config.mjs.
