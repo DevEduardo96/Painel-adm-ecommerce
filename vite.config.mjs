@@ -22,7 +22,7 @@ export default defineConfig(({ mode }) => {
     define: {
       global: 'window'
     },
-    base: APP_BASE_URL,
+    base: '/',
     plugins: [react(), jsconfigPaths()]
   };
 });

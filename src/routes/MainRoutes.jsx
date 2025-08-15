@@ -1,4 +1,3 @@
-
 import { lazy } from 'react';
 
 // project imports
@@ -29,17 +28,15 @@ const MainRoutes = {
   errorElement: <ErrorFallback />,
   children: [
     {
-      path: '/',
-      element: <DashboardDefault />,
-      errorElement: <ErrorFallback />
+      path: '',
+      element: <Navigate to="/dashboard/default" replace />
     },
     {
       path: 'dashboard',
       children: [
         {
           path: 'default',
-          element: <DashboardDefault />,
-          errorElement: <ErrorFallback />
+          element: <DashboardDefault />
         }
       ]
     },
